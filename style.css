@@ -1,0 +1,41 @@
+#timer {
+	width: 700px;
+	margin: 0px auto;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#timer ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0px;
+	padding: 0px;
+}
+
+#timer ul {
+	list-style-type: none;
+}
+
+#timer div {
+	border: 1px solid;
+	border-radius: 35px;
+	padding: 70px 80px 80px;
+	font: 40px Arial;
+	text-align: center;
+}
+
+#timer button {
+	margin: 20px;
+	height: 50px;
+	width: 100px;
+	border-radius: 20px;
+}
+
+#timer button:active, #timer button:focus {
+  outline: none;
+}
+#timer button::-moz-focus-inner {
+  border: 0;
+}

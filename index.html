@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timer</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="StatefulEmitter.js"></script>
+	<script type="text/javascript" src="printTimer.js"></script>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="timer">
+		<div>00:00:00</div>
+		<ul>
+			<li><button id="run">Start</button></li>
+			<li><button id="stop">Stop</button></li>
+			<li><button id="reset">Reset</button></li>
+		</ul>
+	</div>
+
+	<script>
+		var timerElem = document.querySelector("#timer")
+		var runElem = document.querySelector("#timer #run")
+		var stopElem = document.querySelector("#timer #stop")
+		var resetElem = document.querySelector("#timer #reset")
+
+		var state$ = new StatefulEmitter({firstRun: true});
+
+		state$.subscribe(state => {
+  			timerElem.firstElementChild.innerHTML = render(state)
+		})
+
+		runElem.addEventListener("click", () => {
+		  state$.setState({running: true}) 
+		})
+
+		stopElem.addEventListener("click", () => {
+  			state$.setState({running: false}) 
+		})
+
+		resetElem.addEventListener("click", () => {
+  			state$.setState({firstRun: true}) 
+		})
+
+	</script>
+</body>
+</html>
